@@ -6,6 +6,8 @@ depuis :
 
 https://wampserver.aviatechno.net/?lang=french
 
+N'oubliez pas de rajouter sous Windows le chemin vers PHP 8 dans les variables d'environnement
+
 **Projet Twig:**
 
 https://twig.symfony.com/
