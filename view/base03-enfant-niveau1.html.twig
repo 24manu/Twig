@@ -1,0 +1,4 @@
+{# ceci est un fichier étendu de base #}
+{% extends 'base.html.twig' %}
+{# on garde le contenu du bloque title avec { { parent } } mais on le modifie  #}
+{% block title %}{{ parent() }} | enfant niveau 1{% endblock %}

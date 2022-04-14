@@ -1,0 +1,15 @@
+{# fichier de base de twig, c'est le parent de notre page #}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Base html{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}<h1>Base HTML</h1>
+<p>Ceci sera la base pour toutes nos pages html sur le site!</p>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>
