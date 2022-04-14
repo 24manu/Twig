@@ -22,3 +22,5 @@ $tab = [
 // chargement de la vue et affichage, passage des variables dans un tableau associatif
 echo $twig->render('base02View.html.twig', ['name' => 'Michaël','montab' => $tab]);
 
+
+

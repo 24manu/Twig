@@ -17,20 +17,48 @@
 <h4>On va utiliser for et endfor pour faire une boucle foreach sur montab.Prems</h4>
 <p>
 {% for item in montab.Prems %}
+    {% if loop.first %} 1) {% endif %}
     {{ item }}<br>
 {% endfor %}
 </p>
 <h3>&#123;&#123; &#125;&#125;</h3>
-<p>Affichage, équivaut a un echo "ce qu'il y a entre les accolades"</p>
+    <p>Affichage, équivaut a un echo "ce qu'il y a entre les accolades"</p>
 <h3>&#123;&#37;  &#37;&#125;</h3>
-<p>Ici se seront nos actions (conditions, boucles, créations de variables, importations, autres fonctions)</p>
+    <p>Ici se seront nos actions (conditions, boucles, créations de variables, importations, autres fonctions)</p>
+<h3>&#123;#  #&#125;</h3>
+    <p>Nos commentaires, comme dans PHP il ne seront pas visible pour l'utilisateur </p>
 <h3>Pour créer une variable dans twig, on utilise set</h3>
-<p>&#123;&#37; set lulu = 45 &#37;&#125;</p>
-<p>{% set lulu = 45 %}</p>
-<p>{{ lulu }}</p>
-<h3>Exemple d'une boucle for de 1 à 10</h3>
+    <p>&#123;&#37; set lulu = 45 &#37;&#125;</p>
+    <p>{% set lulu = 45 %}</p>
+    <p>{{ lulu }}</p>
+    <h3>Exemple d'une boucle for de 1 à 10 en utilisant la variable lulu</h3>
+    <p>{% for i in 1..lulu %}
+            {{ i }} -
+        {% endfor %}
+    </p>
+<h3>La même boucle avec une condition pour ne pas avoir de pipe | à la fin</h3>
+<p><pre>&#123;&#37; for i in 1..lulu &#37;&#125;
+        {{ i }}
+    &#123;# on met un pipe | tant qu'on est pas au dernier tour de boucle condition #&#125;
+    &#123;# si pas dernier tour -> affichage du pipe #&#125;
+    &#123;&#37; if not loop.last &#37;&#125;|&#123;&#37; endif &#37;&#125;
+    &#123;&#37; endfor &#37;&#125;</pre></p>
 <p>{% for i in 1..lulu %}
-        {{ i }} -
+        {{ i }}
+        {# on met un pipe | tant qu'on est pas au dernier tour de boucle condition #}
+        {# si pas dernier tour -> affichage du pipe #}
+        {% if not loop.last %}|{% endif %}
+    {% endfor %}
+</p>
+<h3>une boucle potentiellement vide</h3>
+<p>Par exemple un nombre d'article inconnu, on peut afficher le message d'erreur grâce au else, voir le code source</p>
+<p>
+   {# a décommenter si on veut voir des articles
+   {% set lala ={1:"un",2:"deux",3:"trois"} %}#}
+    {% for clef, item in lala %}
+       {{ clef }}) {{ item }}<br>
+    {% else %}
+        Pas encore d'article dans cette section
     {% endfor %}
 </p>
 </body>
