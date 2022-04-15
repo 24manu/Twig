@@ -14,5 +14,5 @@ if(isset($_GET['page'])){
 
     // on est sur l'accueil
 }else{
-
+    echo $twig->render('base.html.twig');
 }
