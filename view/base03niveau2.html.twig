@@ -1,0 +1,8 @@
+{# ceci est un fichier étendu de base #}
+{% extends 'base03-enfant-niveau1.html.twig' %}
+{# Les include sont toujours possible, moins utilisés, mais toujours utilisés #}
+{% block menu %} {% include 'menu.php.twig' %} {% endblock %}
+{% block content %}contenu de l'enfant niveau 2<br>{% endblock %}
+{% block javascripts %}
+   <script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.78/Build/Cesium/Cesium.js"></script>
+{% endblock %}

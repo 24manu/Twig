@@ -1,4 +1,16 @@
 {# ceci est un fichier étendu de base #}
 {% extends 'base.html.twig' %}
-{# on garde le contenu du bloque title avec { { parent } } mais on le modifie  #}
+{# on garde le contenu du bloque title avec { { parent } } mais on le modifie surcharge #}
 {% block title %}{{ parent() }} | enfant niveau 1{% endblock %}
+
+{# Si on avait du contenu dans stylsheets, on l'écrase par le bloc vide #}
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <div>{% block haut %}le haut{% endblock %}</div>
+    {% block menu %}le menu{% endblock %}<br>
+    {% block content %}le contenu{% endblock %}<br>
+    {% block footer %}le pied de page{% endblock %}<br>
+
+{% endblock %}
+
