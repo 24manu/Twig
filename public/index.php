@@ -11,8 +11,19 @@ $twig = new \Twig\Environment($loader, []);
 
 // routeur dans notre CF
 if(isset($_GET['page'])){
-
+    switch($_GET['page']):
+        case 'contact':
+            $titre = DatasTheme::TITLE['contact'];
+            $sstitre = DatasTheme::SUBTITLE['contact'];
+            echo $twig->render('contact.html.twig',
+                ['title'=>$titre,
+                    'soustitre'=>$sstitre,
+                    'texte'=>DatasTheme::SUBTEXT['contact']]);
+            break;
+            endswitch;
     // on est sur l'accueil
 }else{
-    echo $twig->render('base.html.twig');
+    $titre = DatasTheme::TITLE['accueil'];
+    $sstitre = DatasTheme::SUBTEXT['accueil'];
+    echo $twig->render('homepage.html.twig',['title'=>$titre, 'soustitre'=>$sstitre]);
 }

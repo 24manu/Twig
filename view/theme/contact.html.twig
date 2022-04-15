@@ -1,0 +1,8 @@
+{# enfant de theme #}
+{% extends 'theme.html.twig' %}
+
+{% block title %}{{ parent() }} | Contact{% endblock %}
+
+{% block titre %}{{ title }}{% endblock %}
+{% block sstitre %}{{ soustitre }}{% endblock %}
+{% block sscontent %}{{ texte|raw }}{% endblock %}
